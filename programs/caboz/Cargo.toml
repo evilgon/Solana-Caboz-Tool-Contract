@@ -1,0 +1,36 @@
+[package]
+name = "caboz"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "caboz"
+
+[features]
+test-bpf = []
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies.anchor-lang]
+version = "0.26.0"
+
+[dependencies.anchor-spl]
+version = "0.26.0"
+default-features = false
+features = ["mint", "token", "metadata"]
+
+[dependencies.solana-program]
+version = "1.13.14"
+
+[dependencies.borsh]
+version = "0.9.3"
+features = ["const-generics"]
+
+[dependencies.mpl-token-metadata]
+version = "1.6.5"
+features = ["no-entrypoint"]

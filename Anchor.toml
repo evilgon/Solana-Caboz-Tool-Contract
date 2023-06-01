@@ -1,0 +1,25 @@
+[features]
+skip-lint = true
+
+[programs.localnet]
+caboz = "CaBozWChzCPoL1dwZwkXqzp6qHqUe7FQNbDs12gTMZMr"
+[programs.devnet]
+caboz = "CaBozWChzCPoL1dwZwkXqzp6qHqUe7FQNbDs12gTMZMr"
+
+[test]
+startup_wait = 30000
+[test.validator]
+url = "https://api.mainnet-beta.solana.com"
+[[test.validator.clone]]
+address = "metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s"
+[[test.validator.account]]
+address = "FdkitqFFz7U65o3v7kjQ6neNGz3DwdQ36pqCELcsMG9s"
+filename = "tests/accounts/IWL.json"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn ts-mocha -p ./tsconfig.json --no-timeouts --slow 0 --exit tests/**/*.ts"
+dump = "yarn ts-node scripts/dump.ts"
